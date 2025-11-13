@@ -78,7 +78,7 @@
     }
     .artworks {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(3, 1fr);   /* Always 3 per row on large screens */
       gap: 2.3rem;
       justify-items: center;
       align-items: start;
@@ -133,6 +133,11 @@
       background: none;
       border-radius: 0;
     }
+    @media (max-width: 900px) {
+      .artworks {
+        grid-template-columns: repeat(2, 1fr);    /* 2 per row on tablets */
+      }
+    }
     @media (max-width: 700px) {
       nav {
         flex-direction: column;
@@ -142,6 +147,7 @@
       .logo-image { margin-bottom: 1rem; height: 64px;}
       .artwork-card { width: 60vw; }
       .artwork-thumb-link { width: 54vw; height: 54vw; }
+      .artworks { grid-template-columns: 1fr; }   /* 1 per row on mobile */
     }
   </style>
 </head>
