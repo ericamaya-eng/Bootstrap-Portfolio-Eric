@@ -14,15 +14,36 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
     }
-    nav { width: 100%; background: #000; color: #ede9f9; padding: 1rem 2rem;}
-    nav a { color: #a259f7; text-decoration: none; }
+    .home-button {
+      margin: 2rem 0 1.6rem 0;
+      display: inline-block;
+      padding: 1rem 2.2rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      background: #49206a;
+      color: #ede9f9;
+      border: 3px solid #a259f7;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 1.2px;
+      box-shadow: 0 4px 24px rgba(160,89,247,0.18);
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+    .home-button:hover {
+      background: #a259f7;
+      color: #301934;
+      box-shadow: 0 4px 40px rgba(48,25,52,0.34);
+    }
     .art-section {
-      margin: 2rem auto;
+      margin: 0 auto 2rem auto;
       text-align: center;
       max-width: 800px;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .art-section img {
       width: 100%;
@@ -32,24 +53,27 @@
       margin-bottom: 1.5rem;
       background: #a259f7;
     }
-    h1 { color: #d1b3ff; margin-bottom: 0.8rem;}
-    .back-link {
-      margin: 1.5rem 0 0;
-      display: inline-block;
-      color: #a259f7;
-      text-decoration: none;
-      font-weight: 600;
+    h1 {
+      color: #d1b3ff;
+      margin-bottom: 0.8rem;
+      font-size: 2rem;
     }
-    .back-link:hover { text-decoration: underline; }
+    p {
+      margin: 0 0 1rem 0;
+      min-height: 1.5em;
+    }
+    @media (max-width: 700px) {
+      .art-section img { max-width: 98vw; }
+      .home-button { width: 90vw; font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
-  <nav><a href="index.html">&larr; Home</a></nav>
+  <a class="home-button" href="index.html">Home</a>
   <div class="art-section">
     <img src="collage.jpg" alt="Collage Artwork">
     <h1>Collage</h1>
-    <p>The 'Collage' artwork blends textures and forms for a vibrant, layered effect.</p>
-    <a class="back-link" href="index.html">← Back to Home</a>
+    <p></p>
   </div>
 </body>
 </html>
