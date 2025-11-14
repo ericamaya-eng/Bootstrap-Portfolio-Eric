@@ -37,48 +37,57 @@
       margin-right: 8px;
       background: #301934;
     }
-    .card {
-      background: rgba(48, 25, 52, 0.85);
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(160,89,247,0.09);
-      color: #ede9f9;
-      margin-bottom: 30px;
-      transition: transform 0.13s;
-    }
-    .card:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 24px 0 rgba(160,89,247,0.21);
-      border: 1.5px solid #a259f7;
-    }
-    .card-img-top {
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      object-fit: cover;
-      height: 220px;
-      background: none;
-      background-color: #22112b;
-    }
-    .card-title {
-      color: #d1b3ff !important;
-      font-weight: 700;
-      font-size: 1.18rem;
-      text-align: center;
-      letter-spacing: 0.7px;
-      margin-bottom: 0.1rem;
-    }
     .container-art {
       margin-top: 2.7rem;
       margin-bottom: 2.4rem;
     }
-    @media (max-width: 767.98px) {
-      .card-img-top {
-        height: 45vw;
-        min-height: 40vw;
-      }
-      .logo-image {
-        height: 44px;
-      }
+    .artwork-thumb {
+      display: block;
+      background: #22112b;
+      border-radius: 18px;
+      box-shadow: 0 2px 14px rgba(160,89,247,0.13);
+      overflow: hidden;
+      transition: box-shadow 0.18s, transform 0.18s;
+      margin: 0 auto;
+      aspect-ratio: 1 / 1;           /* Ensure square thumbnail */
+      width: 100%;
+      max-width: 240px;
+      border: 2px solid transparent;
+    }
+    .artwork-thumb:hover {
+      box-shadow: 0 6px 24px 0 rgba(160,89,247,0.26);
+      transform: translateY(-3px) scale(1.02);
+      border: 2px solid #a259f7;
+    }
+    .artwork-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;          /* Show the whole artwork */
+      background: #22112b;
+      display: block;
+      padding: 0.7rem;               /* Padding ensures image never touches edge or crops */
+    }
+    .artwork-title {
+      color: #d1b3ff;
+      font-weight: 700;
+      font-size: 1.13rem;
+      text-align: center;
+      letter-spacing: 0.7px;
+      margin: 0.7rem 0 1.3rem 0;
+      text-transform: capitalize;
+    }
+    .artwork-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (max-width: 991.98px) { /* 2 per row on md/tablet */
+      .artwork-thumb { max-width: 42vw; }
+    }
+    @media (max-width: 767.98px) { /* 1 per row on mobile */
+      .artwork-thumb { max-width: 80vw; }
+      .logo-image { height: 44px; }
+      .artwork-title { font-size: 1rem; }
     }
   </style>
 </head>
@@ -100,81 +109,54 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- Main content -->
   <div class="container container-art">
-    <div class="row justify-content-center gy-4">
+    <div class="row justify-content-center gy-5">
       <!-- Logo -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="logo-art.html">
-            <img src="logo.png" class="card-img-top" alt="Logo">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">Logo</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="logo-art.html">
+          <img src="logo.png" class="artwork-img" alt="Logo">
+        </a>
+        <div class="artwork-title">Logo</div>
       </div>
       <!-- Glitch -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="glitch.html">
-            <img src="glitch.jpg" class="card-img-top" alt="Glitch">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">Glitch</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="glitch.html">
+          <img src="glitch.jpg" class="artwork-img" alt="Glitch">
+        </a>
+        <div class="artwork-title">Glitch</div>
       </div>
       <!-- War -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="war.html">
-            <img src="war.jpg" class="card-img-top" alt="War">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">War</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="war.html">
+          <img src="war.jpg" class="artwork-img" alt="War">
+        </a>
+        <div class="artwork-title">War</div>
       </div>
       <!-- Render -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="render.html">
-            <img src="render.png" class="card-img-top" alt="Render">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">Render</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="render.html">
+          <img src="render.png" class="artwork-img" alt="Render">
+        </a>
+        <div class="artwork-title">Render</div>
       </div>
       <!-- Space -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="space.html">
-            <img src="space.jpg" class="card-img-top" alt="Space">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">Space</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="space.html">
+          <img src="space.jpg" class="artwork-img" alt="Space">
+        </a>
+        <div class="artwork-title">Space</div>
       </div>
       <!-- Collage -->
-      <div class="col-md-4 col-sm-6">
-        <div class="card h-100">
-          <a href="collage.html">
-            <img src="collage.jpg" class="card-img-top" alt="Collage">
-          </a>
-          <div class="card-body p-2">
-            <h5 class="card-title">Collage</h5>
-          </div>
-        </div>
+      <div class="col-lg-4 col-md-6 col-12 artwork-col">
+        <a class="artwork-thumb" href="collage.html">
+          <img src="collage.jpg" class="artwork-img" alt="Collage">
+        </a>
+        <div class="artwork-title">Collage</div>
       </div>
     </div>
   </div>
